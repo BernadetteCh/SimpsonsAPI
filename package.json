@@ -1,0 +1,23 @@
+{
+  "name": "simpsonsapi",
+  "version": "1.0.0",
+  "description": "TODOS //forntend , backend Ordner //frontend:index (Welcome), bootstrap hinzufügen, css, Your character(displays favorite character with picture) //backend: webserver , requests definieren, pkgs json file with family characters, express js , pgks json,gitignore,",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BernadetteCh/SimpsonsAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BernadetteCh/SimpsonsAPI/issues"
+  },
+  "homepage": "https://github.com/BernadetteCh/SimpsonsAPI#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}
