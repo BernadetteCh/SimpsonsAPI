@@ -1,0 +1,14 @@
+body {
+  background-color: yellow;
+}
+h1 {
+  text-align: center;
+}
+.navbar {
+  background-color: yellow;
+}
+.simpsons-family {
+  width: 900px;
+  display: block;
+  margin: 0px auto;
+}
