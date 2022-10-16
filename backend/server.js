@@ -10,10 +10,26 @@ app.use(express.json()); //is a built in middleware function in Express. It pars
 app.use("/styles.css", express.static(`${__dirname}/../frontend/styles.css`)); // Static means pre-rendered web pages that do not change on time. Dynamic means it is generated in real-time at the time of the request by the server.//static files da veränder sich der content nicht, daher "nur" das css als static hier
 app.use("/script.js", express.static(`${__dirname}/../frontend/script.js`));
 
+//Asynchronous code to reading file from json
+
+const fs = require("fs");
+
+app.get("/api/data", (req, res) => {
+  fs.readFile("./backend/simpsons.json", "utf-8", (err, data) => {
+    try {
+      const simpsons = JSON.parse(data);
+      res.send(simpsons);
+    } catch (err) {
+      console.log(err);
+    }
+  });
+});
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
   //dirname() method returns the directories of a file path.
 });
+
 app.get("/index.html", (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
   //dirname() method returns the directories of a file path.
