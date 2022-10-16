@@ -8,6 +8,7 @@ const path = require("path"); //The Path module provides a way of working with d
 
 app.use(express.json()); //is a built in middleware function in Express. It parses incoming JSON requests and puts the parsed data in req.body
 app.use("/styles.css", express.static(`${__dirname}/../frontend/styles.css`)); // Static means pre-rendered web pages that do not change on time. Dynamic means it is generated in real-time at the time of the request by the server.//static files da veränder sich der content nicht, daher "nur" das css als static hier
+app.use("/script.js", express.static(`${__dirname}/../frontend/script.js`));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
