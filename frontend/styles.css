@@ -12,3 +12,14 @@ h1 {
   display: block;
   margin: 0px auto;
 }
+.simpsons-family-img {
+  max-width: 150px;
+  padding: 15px;
+  /* height: 150px; */
+}
+.img-container {
+  display: inline-block;
+}
+#simpsons-characters-img {
+  text-align: center;
+}
