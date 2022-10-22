@@ -14,7 +14,6 @@
       "characteristic": "high blue hair",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4LIbzfKGnh8ZG08LsLmbG2F88EHYsn7keDA&usqp=CAU"
     },
-
     {
       "name": "Bart Simpson",
       "age": 10,
@@ -35,6 +34,20 @@
       "born": "Dec-17-1989",
       "characteristic": "does not speak",
       "img": "https://i.pinimg.com/originals/54/2f/6f/542f6f41a37ec8055f7822a7c69949f5.jpg"
+    }
+  ],
+  "userData": [
+    {
+      "img": "https://i.pinimg.com/originals/54/2f/6f/542f6f41a37ec8055f7822a7c69949f5.jpg",
+      "name": "Maggie Simpson"
+    },
+    {
+      "img": "https://i.pinimg.com/originals/54/2f/6f/542f6f41a37ec8055f7822a7c69949f5.jpg",
+      "name": "Maggie Simpson"
+    },
+    {
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4LIbzfKGnh8ZG08LsLmbG2F88EHYsn7keDA&usqp=CAU",
+      "name": "Marge Simpson"
     }
   ]
 }
