@@ -94,24 +94,6 @@ async function loadPage() {
 
 loadPage();
 
-//1. Methode _-----------------------------------------------------
-// async function fetchApi() {
-//   const response = await fetch(url + "/api/data");
-//   const obj = await response.json();
-//   console.log(obj);
-//   return obj;
-// }
-
-// async function displayCharacters() {
-//   const data = await fetchApi();
-//   displayImgOfCharacters(data);
-// }
-
-// function displayImgOfCharacters(data) {
-//   console.log(data);
-// }
-// fetchApi();
-
 //2.Methode ./...............................................................
 
 // async function displayCharacters() {
