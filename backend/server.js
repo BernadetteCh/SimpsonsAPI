@@ -15,7 +15,7 @@ app.use("/script.js", express.static(`${__dirname}/../frontend/script.js`));
 const fs = require("fs");
 
 app.get("/api/data", (req, res) => {
-  fs.readFile("./backend/simpsons.json", "utf-8", (err, data) => {
+  fs.readFile("simpsons.json", "utf-8", (err, data) => {
     try {
       const simpsons = JSON.parse(data);
       res.send(simpsons);
