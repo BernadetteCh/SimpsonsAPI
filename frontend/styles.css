@@ -20,6 +20,9 @@ h1 {
 .img-container {
   display: inline-block;
 }
+.search-form {
+  text-align: center;
+}
 #simpsons-characters-img {
   text-align: center;
 }
