@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module" defer></script>
     <title>ChooseYourCharacter</title>
   </head>
   <body>
@@ -45,13 +45,25 @@
     <main>
       <h1>Choose Your favorite Character</h1>
       <div id="simpsons-characters-img" class="row"></div>
-      <h2 id="important">Create Your own Simpsons Character</h2>
       <div id="search-autocomplete" class="search-form">
-        <form method="action">
-          <input type="search" placeholder="Search for a Character" />
-          <input type="submit" class="submitButton" />
+        <form autocomplete="off">
+          <input
+            type="text"
+            placeholder="Search for a Character"
+            class="search-input"
+          />
+          <div class="autocomplete-output"></div>
         </form>
       </div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">X</span>
+          <p class="modal-content-simpsonsFamilyMember"></p>
+        </div>
+      </div>
+      <h2 id="important">Create Your own Simpsons Character</h2>
     </main>
   </body>
 </html>
