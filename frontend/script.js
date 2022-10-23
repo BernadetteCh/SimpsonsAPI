@@ -1,8 +1,10 @@
 url = "http://localhost:9000";
+import characters from "../backend/simpsons.json" assert { type: "json" };
 
 // let selectedUserCharacters = [];
 
 const imgSection = document.getElementById("simpsons-characters-img");
+const searchForCharacter = document.querySelector(".submitButton");
 
 const fetchApiData = async () => {
   const response = await fetch(url + "/api/data");
@@ -71,6 +73,11 @@ function displaySelectedCharacterFromUser(getDataFromUser) {
     name.innerHTML = element.name;
     nameOfSelectedCharacter.appendChild(name);
   });
+}
+
+searchForCharacter.addEventListener("click", autocompleteSearchForCharacter);
+function autocompleteSearchForCharacter(event) {
+  alert("Hello World");
 }
 
 async function loadPage() {
