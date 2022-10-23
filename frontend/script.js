@@ -1,10 +1,13 @@
-url = "http://localhost:9000";
-import characters from "../backend/simpsons.json" assert { type: "json" };
+const url = "http://localhost:9000";
+// import characters from "../backend/simpsons.json" assert { type: "json" };
+// console.log(characters);
 
 // let selectedUserCharacters = [];
+let simpsons = [];
 
 const imgSection = document.getElementById("simpsons-characters-img");
-const searchForCharacter = document.querySelector(".submitButton");
+const input = document.querySelector(".search-input");
+const autocompleteOutput = document.querySelector(".autocomplete-output");
 
 const fetchApiData = async () => {
   const response = await fetch(url + "/api/data");
@@ -75,9 +78,54 @@ function displaySelectedCharacterFromUser(getDataFromUser) {
   });
 }
 
-searchForCharacter.addEventListener("click", autocompleteSearchForCharacter);
-function autocompleteSearchForCharacter(event) {
-  alert("Hello World");
+function searchForASimpsonsCharacter() {
+  input.addEventListener("input", autocompleteSearchForCharacter);
+
+  function autocompleteSearchForCharacter(event) {
+    event.preventDefault();
+    let userInput = input.value.slice(0, 2);
+    fetch(url + "/api/data", {
+      method: "GET",
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        data.simpsons.map((simpsonMember) => {
+          if (
+            userInput.toLowerCase() ===
+            simpsonMember.name.slice(0, 2).toLowerCase()
+          ) {
+            autocompleteOutput.innerHTML += `<ul><li class="autocomplete-name">${simpsonMember.name}</li></ul>`;
+            simpsons.push(simpsonMember);
+            displaySearchedFamilyMember(simpsonMember);
+          }
+        });
+      });
+  }
+}
+function displaySearchedFamilyMember(simpsonMember) {
+  let list = document.getElementsByClassName("autocomplete-name");
+  let modal = document.getElementById("myModal");
+  let close = document.querySelector(".close");
+  let modalContent = document.querySelector(
+    ".modal-content-simpsonsFamilyMember"
+  );
+
+  for (let element of list) {
+    element.addEventListener("click", () => {
+      autocompleteOutput.innerHTML = "";
+      for (let familyMember of simpsons) {
+        if (familyMember.name === element.innerText) {
+          modal.style.display = "block";
+          modalContent.innerHTML = `Name: ${familyMember.name} <br /> Born: ${familyMember.born} <br /> Age: ${familyMember.age} <br /> Characteristic: ${familyMember.characteristic}`;
+        }
+      }
+    });
+  }
+  close.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 }
 
 async function loadPage() {
@@ -89,10 +137,13 @@ async function loadPage() {
   ) {
     renderElements(data);
     addEventListener(); //sendPostRequest
+    searchForASimpsonsCharacter();
   }
 
-  const selectedCharacterFromUser = await getData();
-  displaySelectedCharacterFromUser(selectedCharacterFromUser);
+  if (window.location.href === "http://localhost:9000/your-characters") {
+    const selectedCharacterFromUser = await getData();
+    displaySelectedCharacterFromUser(selectedCharacterFromUser);
+  }
 }
 
 loadPage();
