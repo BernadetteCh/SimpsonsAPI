@@ -1,9 +1,9 @@
 url = "http://localhost:9000";
-// let userObj = [];
-let selectedUserCharacters = [];
+
+// let selectedUserCharacters = [];
 
 const imgSection = document.getElementById("simpsons-characters-img");
-// let simpsons;
+
 const fetchApiData = async () => {
   const response = await fetch(url + "/api/data");
   const obj = await response.json();
@@ -24,6 +24,7 @@ function renderElements(data) {
     divForImgDescription.innerHTML = `${element.name}`;
   });
 }
+
 function addEventListener() {
   [...document.getElementsByClassName("simpsons-family-img")].map((image) => {
     image.addEventListener("click", sendSelectedCharacterToServer);
@@ -45,9 +46,6 @@ async function sendSelectedCharacterToServer(event) {
       name: selectedName,
     }),
   });
-  // let hey = await si.json();
-  // console.log(hey);
-  // console.log("Si" + si.json());
 }
 
 async function getData() {
@@ -56,7 +54,6 @@ async function getData() {
   });
 
   const obj = await response.json();
-  // selectedUserCharacters.push(obj);
   return obj;
 }
 
@@ -78,7 +75,6 @@ function displaySelectedCharacterFromUser(getDataFromUser) {
 
 async function loadPage() {
   const data = await fetchApiData();
-  console.log(window.location);
   if (
     window.location.href === "http://localhost:9000/choose-your-character" ||
     window.location.href ===
